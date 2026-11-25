@@ -22,3 +22,30 @@ export interface NavItem {
   id: string;
   label: string;
 }
+
+export interface AboutFact {
+  label: string;
+  value: string;
+}
+
+export interface About {
+  paragraphs: string[];
+  facts: AboutFact[];
+}
+
+export interface ExperienceGroup {
+  title: string;
+  bullets: string[];
+}
+
+export interface ExperienceRole {
+  company: string;
+  companyUrl: string;
+  role: string;
+  location: string;
+  start: string;
+  end: string;
+  summary: string;
+  groups: ExperienceGroup[];
+  tech: string[];
+}
