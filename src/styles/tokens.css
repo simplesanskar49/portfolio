@@ -1,0 +1,67 @@
+/*
+ * Design tokens. Components use the semantic tokens (bg-*, text-*, border-*, accent),
+ * never raw hex values. Dark is the default theme; light is applied via
+ * <html data-theme="light">. All sizes are in rem.
+ */
+
+@theme {
+  /* Neutral ramp (cool grey) */
+  --color-neutral-50: #f6f8f9;
+  --color-neutral-100: #e8edf0;
+  --color-neutral-200: #d3dbe0;
+  --color-neutral-300: #b8c2c8;
+  --color-neutral-400: #93a0a8;
+  --color-neutral-500: #6b7780;
+  --color-neutral-600: #4b5862;
+  --color-neutral-700: #262f36;
+  --color-neutral-800: #1a2127;
+  --color-neutral-900: #11161a;
+  --color-neutral-950: #0b0f12;
+
+  /* Accent: teal */
+  --color-teal-300: #5eead4;
+  --color-teal-400: #2dd4bf;
+  --color-teal-600: #0d9488;
+  --color-teal-700: #0f766e;
+  --color-teal-800: #115e59;
+
+  /* Semantic colours (dark defaults, remapped for light below) */
+  --color-bg-page: var(--color-neutral-950);
+  --color-bg-surface: var(--color-neutral-900);
+  --color-bg-raised: var(--color-neutral-800);
+  --color-bg-hover: var(--color-neutral-700);
+  --color-text-primary: var(--color-neutral-100);
+  --color-text-secondary: var(--color-neutral-300);
+  --color-text-muted: var(--color-neutral-400);
+  --color-border-default: var(--color-neutral-700);
+  --color-border-strong: var(--color-neutral-600);
+  --color-accent: var(--color-teal-400);
+  --color-accent-hover: var(--color-teal-300);
+  --color-accent-muted: color-mix(in oklab, var(--color-teal-400) 15%, transparent);
+  --color-on-accent: var(--color-neutral-950);
+
+  /* Typography */
+  --font-sans: "Inter Variable", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono Variable", ui-monospace, "SFMono-Regular", monospace;
+
+  /* Layout */
+  --container-content: 72rem;
+  --spacing-nav: 4rem;
+  --radius-card: 0.75rem;
+}
+
+:root[data-theme="light"] {
+  --color-bg-page: #ffffff;
+  --color-bg-surface: var(--color-neutral-50);
+  --color-bg-raised: var(--color-neutral-100);
+  --color-bg-hover: var(--color-neutral-200);
+  --color-text-primary: var(--color-neutral-950);
+  --color-text-secondary: var(--color-neutral-700);
+  --color-text-muted: var(--color-neutral-600);
+  --color-border-default: var(--color-neutral-200);
+  --color-border-strong: var(--color-neutral-300);
+  --color-accent: var(--color-teal-700);
+  --color-accent-hover: var(--color-teal-800);
+  --color-accent-muted: color-mix(in oklab, var(--color-teal-700) 12%, transparent);
+  --color-on-accent: #ffffff;
+}
