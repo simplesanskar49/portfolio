@@ -63,7 +63,7 @@ export function Experience() {
   return (
     <Section id="experience" eyebrow="Experience" title="Where I've shipped">
       {/* Timeline: a rail on the left with a marker per role. */}
-      <ol className="relative space-y-8 border-l border-border-default pl-6 sm:pl-10">
+      <ol className="relative space-y-8 border-l border-border-default pl-6 sm:pl-10" data-stagger>
         {experience.map((role) => (
           <li key={`${role.company}-${role.start}`} className="relative">
             <span

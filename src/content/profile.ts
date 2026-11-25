@@ -6,7 +6,8 @@ export const profile: Profile = {
   subtitle: "Full-stack · React, TypeScript, Go",
   pitch:
     "I build products people enjoy using — owning features from the user problem to the shipped UI and the Go services behind it, with user experience, accessibility and performance treated as features.",
-  email: "sanskar.kumar.49@gmail.com",
+  emailUser: "sanskar.kumar.49",
+  emailDomain: "gmail.com",
   links: [
     { label: "GitHub", href: "https://github.com/simplesanskar49" },
     { label: "LinkedIn", href: "https://www.linkedin.com/in/sanskar-kumar-a0b8181b0/" },

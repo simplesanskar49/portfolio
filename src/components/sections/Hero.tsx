@@ -22,7 +22,7 @@ export function Hero() {
         className="absolute top-24 right-0 -z-10 hidden h-64 w-md rounded-full bg-glow-secondary blur-3xl sm:block"
       />
 
-      <Container className="pt-16 pb-20 sm:pt-24 sm:pb-28">
+      <Container className="pt-16 pb-12 sm:pt-24 sm:pb-16">
         <p className="inline-flex items-center gap-2 rounded-full border border-border-default bg-bg-surface px-3 py-1 font-mono text-xs tracking-widest text-accent uppercase shadow-card">
           <span className="size-1.5 rounded-full bg-accent" aria-hidden="true" />
           {profile.title}

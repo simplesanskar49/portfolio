@@ -6,5 +6,6 @@ export const NAV_ITEMS: readonly NavItem[] = [
   { id: "experience", label: "Experience" },
   { id: "projects", label: "Projects" },
   { id: "skills", label: "Skills" },
+  { id: "achievements", label: "Achievements" },
   { id: "contact", label: "Contact" },
 ];

@@ -22,7 +22,7 @@ describe("Home", () => {
     for (const stat of profile.stats) {
       const term = screen.getByText(stat.label);
       expect(term.tagName).toBe("DT");
-      expect(term.parentElement).toContainElement(screen.getByText(stat.value));
+      expect(term.parentElement).toHaveTextContent(stat.value);
     }
   });
 
