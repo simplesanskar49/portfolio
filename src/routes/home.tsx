@@ -1,3 +1,7 @@
+import { NavBar } from "~/components/layout/NavBar";
+import { Section } from "~/components/layout/Section";
+import { Hero } from "~/components/sections/Hero";
+import { NAV_ITEMS } from "~/constants/navigation";
 import { profile } from "~/content/profile";
 
 import type { Route } from "./+types/home";
@@ -11,13 +15,17 @@ export function meta(_: Route.MetaArgs) {
 
 export default function Home() {
   return (
-    <main id="main" className="mx-auto max-w-(--container-content) px-4 py-24 sm:px-6 lg:px-8">
-      <p className="font-mono text-sm tracking-widest text-accent uppercase">{profile.title}</p>
-      <h1 className="mt-4 text-4xl font-semibold tracking-tight sm:text-6xl">{profile.name}</h1>
-      <p className="mt-2 text-lg text-text-secondary">{profile.subtitle}</p>
-      <p className="mt-6 max-w-2xl text-base leading-relaxed text-text-muted sm:text-lg">
-        {profile.pitch}
-      </p>
-    </main>
+    <>
+      <NavBar />
+      <main id="main">
+        <Hero />
+        {/* Placeholder sections so navigation and scroll-spy can be reviewed; real content comes next. */}
+        {NAV_ITEMS.map((item) => (
+          <Section key={item.id} id={item.id} eyebrow={item.label} title={item.label}>
+            <p className="max-w-2xl text-text-muted">Content coming in the next step.</p>
+          </Section>
+        ))}
+      </main>
+    </>
   );
 }

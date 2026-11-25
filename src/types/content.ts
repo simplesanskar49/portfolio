@@ -3,6 +3,11 @@ export interface SocialLink {
   href: string;
 }
 
+export interface Stat {
+  value: string;
+  label: string;
+}
+
 export interface Profile {
   name: string;
   title: string;
@@ -10,4 +15,10 @@ export interface Profile {
   pitch: string;
   email: string;
   links: SocialLink[];
+  stats: Stat[];
+}
+
+export interface NavItem {
+  id: string;
+  label: string;
 }

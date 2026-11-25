@@ -24,6 +24,8 @@
   --color-teal-600: #0d9488;
   --color-teal-700: #0f766e;
   --color-teal-800: #115e59;
+  --color-cyan-300: #67e8f9;
+  --color-cyan-400: #22d3ee;
 
   /* Semantic colours (dark defaults, remapped for light below) */
   --color-bg-page: var(--color-neutral-950);
@@ -40,6 +42,15 @@
   --color-accent-muted: color-mix(in oklab, var(--color-teal-400) 15%, transparent);
   --color-on-accent: var(--color-neutral-950);
 
+  /* Decorative (hero backdrop) */
+  --color-grid: color-mix(in oklab, var(--color-neutral-700) 60%, transparent);
+  --color-glow: color-mix(in oklab, var(--color-teal-400) 15%, transparent);
+  --color-glow-secondary: color-mix(in oklab, var(--color-cyan-400) 8%, transparent);
+
+  /* Elevation: borders carry depth in dark; soft shadows do in light */
+  --shadow-card: 0 0 0 0 transparent;
+  --shadow-card-hover: 0 0 0 0.0625rem var(--color-teal-400);
+
   /* Typography */
   --font-sans: "Inter Variable", ui-sans-serif, system-ui, sans-serif;
   --font-mono: "JetBrains Mono Variable", ui-monospace, "SFMono-Regular", monospace;
@@ -51,8 +62,9 @@
 }
 
 :root[data-theme="light"] {
-  --color-bg-page: #ffffff;
-  --color-bg-surface: var(--color-neutral-50);
+  /* Tinted page + white cards with soft shadows, so surfaces read as layers. */
+  --color-bg-page: #f4f7f8;
+  --color-bg-surface: #ffffff;
   --color-bg-raised: var(--color-neutral-100);
   --color-bg-hover: var(--color-neutral-200);
   --color-text-primary: var(--color-neutral-950);
@@ -64,4 +76,12 @@
   --color-accent-hover: var(--color-teal-800);
   --color-accent-muted: color-mix(in oklab, var(--color-teal-700) 12%, transparent);
   --color-on-accent: #ffffff;
+
+  --color-grid: color-mix(in oklab, var(--color-teal-700) 10%, transparent);
+  --color-glow: color-mix(in oklab, var(--color-teal-300) 45%, transparent);
+  --color-glow-secondary: color-mix(in oklab, var(--color-cyan-300) 35%, transparent);
+
+  --shadow-card: 0 0.0625rem 0.125rem rgb(15 23 42 / 0.04), 0 0.25rem 1rem rgb(15 23 42 / 0.06);
+  --shadow-card-hover:
+    0 0.0625rem 0.125rem rgb(15 23 42 / 0.06), 0 0.5rem 1.5rem rgb(13 148 136 / 0.14);
 }

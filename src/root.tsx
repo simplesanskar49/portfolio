@@ -8,6 +8,8 @@ import {
   ScrollRestoration,
 } from "react-router";
 
+import { THEME_COLOR, THEME_INIT_SCRIPT } from "~/constants/theme";
+
 import type { Route } from "./+types/root";
 import "./app.css";
 
@@ -15,11 +17,13 @@ export const links: Route.LinksFunction = () => [{ rel: "icon", href: "/favicon.
 
 export function Layout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" data-theme="dark">
+    // data-theme is set before paint by THEME_INIT_SCRIPT, so it may differ from the prerendered value.
+    <html lang="en" data-theme="dark" suppressHydrationWarning>
       <head>
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-        <meta name="theme-color" content="#0b0f12" />
+        <meta name="theme-color" content={THEME_COLOR.dark} />
+        <script dangerouslySetInnerHTML={{ __html: THEME_INIT_SCRIPT }} />
         <Meta />
         <Links />
       </head>
