@@ -14,4 +14,11 @@ export const profile: Profile = {
     { label: "Codeforces", href: "https://codeforces.com/profile/Sanskar49" },
     { label: "Topmate", href: "https://topmate.io/simplesanskar49" },
   ],
+  // Every number must be traceable to the resume or GitHub history.
+  stats: [
+    { value: "4+", label: "years shipping production web apps" },
+    { value: "5", label: "codebases I'm a code owner of" },
+    { value: "10+", label: "features shipped end-to-end" },
+    { value: "100k+", label: "users on the platform I build for" },
+  ],
 };

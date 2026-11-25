@@ -11,6 +11,7 @@ export default defineConfig({
   use: {
     baseURL: `http://localhost:${String(PORT)}`,
     trace: "on-first-retry",
+    colorScheme: "dark",
   },
   projects: [
     { name: "mobile", use: { ...devices["iPhone 13"], browserName: "chromium" } },
