@@ -1,0 +1,17 @@
+.DS_Store
+.env
+/node_modules/
+
+# React Router
+/.react-router/
+/build/
+
+# Tests
+/coverage/
+/playwright-report/
+/test-results/
+
+# Local env / tooling
+.env.*
+!.env.example
+.vercel
