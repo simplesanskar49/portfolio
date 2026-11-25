@@ -1,6 +1,7 @@
 import { Menu, X } from "lucide-react";
 import { useEffect, useId, useState } from "react";
 
+import { ScrollProgress } from "~/components/atoms/ScrollProgress";
 import { ThemeToggle } from "~/components/atoms/ThemeToggle";
 import { NAV_ITEMS } from "~/constants/navigation";
 import { profile } from "~/content/profile";
@@ -105,6 +106,8 @@ export function NavBar() {
           </button>
         </div>
       </Container>
+
+      <ScrollProgress />
 
       <nav
         id={menuId}

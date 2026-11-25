@@ -93,3 +93,25 @@
 .reveal-ready [data-reveal] [data-stagger] > :nth-child(n + 6) {
   transition-delay: 0.5s;
 }
+
+/* Scroll progress bar (see ScrollProgress.tsx). JS fallback sets --scroll-progress. */
+.scroll-progress {
+  transform: scaleX(var(--scroll-progress, 0));
+  transform-origin: left;
+}
+
+@keyframes scroll-progress {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+
+@supports (animation-timeline: scroll()) {
+  .scroll-progress {
+    animation: scroll-progress linear both;
+    animation-timeline: scroll(root block);
+  }
+}
