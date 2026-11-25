@@ -67,5 +67,5 @@ export const skills: SkillGroup[] = [
       "Cloudflare Workers",
     ],
   },
-  { title: "Mobile & AI", skills: ["React Native", "Expo", "Gemini API", "Claude Code"] },
+  { title: "Mobile & AI", skills: ["React Native", "Expo", "Gemini API"] },
 ];
