@@ -13,7 +13,9 @@ export interface Profile {
   title: string;
   subtitle: string;
   pitch: string;
-  email: string;
+  /** Email split in two so the address never appears whole in the static HTML. */
+  emailUser: string;
+  emailDomain: string;
   links: SocialLink[];
   stats: Stat[];
 }
@@ -48,4 +50,27 @@ export interface ExperienceRole {
   summary: string;
   groups: ExperienceGroup[];
   tech: string[];
+}
+
+export interface Project {
+  title: string;
+  /** Where it was built, e.g. "Armada" or "Personal". */
+  context: string;
+  problem: string;
+  built: string;
+  outcome: string;
+  stack: string[];
+  links: SocialLink[];
+}
+
+export interface SkillGroup {
+  title: string;
+  skills: string[];
+}
+
+export interface Achievement {
+  value: string;
+  label: string;
+  detail: string;
+  link: SocialLink;
 }

@@ -13,7 +13,5 @@ export const about: About = {
       value:
         "B.Tech, Information Technology — RCC Institute of Information Technology, Kolkata (2018–2022)",
     },
-    { label: "Mentoring", value: "Mock interviews and career guidance on Topmate" },
-    { label: "Problem solving", value: "1000+ LeetCode problems · Codeforces max rating 1310" },
   ],
 };
