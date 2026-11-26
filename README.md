@@ -40,7 +40,7 @@ Live at **https://sanskar-kumar.vercel.app** (the project domain, also the defau
 
 1. To move to a custom domain: add it under the project's **Domains**, then set `VITE_SITE_URL` (see `.env.example`) in the Production environment and redeploy.
 2. **Analytics** tab → enable Web Analytics.
-3. **Google Search Console** → Add property → **URL prefix** → HTML tag. Put the `content` value in `VITE_GOOGLE_SITE_VERIFICATION`, redeploy, click Verify. Then **Sitemaps** → submit `sitemap.xml`.
+3. **Google Search Console**: verified with the HTML tag token in `src/constants/site.ts` (URL-prefix property). For a new domain, set `VITE_GOOGLE_SITE_VERIFICATION` instead. Then **Sitemaps** → submit `sitemap.xml`.
 4. **Bing Webmaster Tools** → import the site from Search Console (or use `VITE_BING_SITE_VERIFICATION` with the HTML tag method). Bing also powers ChatGPT and Copilot search.
 
 Preview deployments are `noindex` by default on Vercel, so only production is indexed.
