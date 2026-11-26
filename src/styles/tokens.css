@@ -26,6 +26,8 @@
   --color-teal-800: #115e59;
   --color-cyan-300: #67e8f9;
   --color-cyan-400: #22d3ee;
+  /* Secondary glow / scroll-progress end colour; follows the accent (see :root[data-accent]) */
+  --color-accent-2: var(--accent-2-400);
 
   /* Semantic colours (dark defaults, remapped for light below) */
   --color-bg-page: var(--color-neutral-950);
@@ -37,21 +39,21 @@
   --color-text-muted: var(--color-neutral-400);
   --color-border-default: var(--color-neutral-700);
   --color-border-strong: var(--color-neutral-600);
-  --color-accent: var(--color-teal-400);
-  --color-accent-hover: var(--color-teal-300);
-  --color-accent-muted: color-mix(in oklab, var(--color-teal-400) 15%, transparent);
+  --color-accent: var(--accent-400);
+  --color-accent-hover: var(--accent-300);
+  --color-accent-muted: color-mix(in oklab, var(--accent-400) 15%, transparent);
   --color-on-accent: var(--color-neutral-950);
   /* Status: "open to roles" badge */
   --color-success: var(--color-emerald-400);
 
   /* Decorative (hero backdrop) */
   --color-grid: color-mix(in oklab, var(--color-neutral-700) 60%, transparent);
-  --color-glow: color-mix(in oklab, var(--color-teal-400) 15%, transparent);
-  --color-glow-secondary: color-mix(in oklab, var(--color-cyan-400) 8%, transparent);
+  --color-glow: color-mix(in oklab, var(--accent-400) 15%, transparent);
+  --color-glow-secondary: color-mix(in oklab, var(--accent-2-400) 8%, transparent);
 
   /* Elevation: borders carry depth in dark; soft shadows do in light */
   --shadow-card: 0 0 0 0 transparent;
-  --shadow-card-hover: 0 0 0 0.0625rem var(--color-teal-400);
+  --shadow-card-hover: 0 0 0 0.0625rem var(--accent-400);
 
   /* Typography */
   --font-sans: "Inter Variable", ui-sans-serif, system-ui, sans-serif;
@@ -74,17 +76,69 @@
   --color-text-muted: var(--color-neutral-600);
   --color-border-default: var(--color-neutral-200);
   --color-border-strong: var(--color-neutral-300);
-  --color-accent: var(--color-teal-700);
-  --color-accent-hover: var(--color-teal-800);
-  --color-accent-muted: color-mix(in oklab, var(--color-teal-700) 12%, transparent);
+  --color-accent: var(--accent-700);
+  --color-accent-hover: var(--accent-800);
+  --color-accent-muted: color-mix(in oklab, var(--accent-700) 12%, transparent);
   --color-on-accent: #ffffff;
   --color-success: var(--color-emerald-600);
 
-  --color-grid: color-mix(in oklab, var(--color-teal-700) 10%, transparent);
-  --color-glow: color-mix(in oklab, var(--color-teal-300) 45%, transparent);
-  --color-glow-secondary: color-mix(in oklab, var(--color-cyan-300) 35%, transparent);
+  --color-grid: color-mix(in oklab, var(--accent-700) 10%, transparent);
+  --color-glow: color-mix(in oklab, var(--accent-300) 45%, transparent);
+  --color-glow-secondary: color-mix(in oklab, var(--accent-2-300) 35%, transparent);
 
   --shadow-card: 0 0.0625rem 0.125rem rgb(15 23 42 / 0.04), 0 0.25rem 1rem rgb(15 23 42 / 0.06);
   --shadow-card-hover:
-    0 0.0625rem 0.125rem rgb(15 23 42 / 0.06), 0 0.5rem 1.5rem rgb(13 148 136 / 0.14);
+    0 0.0625rem 0.125rem rgb(15 23 42 / 0.06),
+    0 0.5rem 1.5rem color-mix(in oklab, var(--accent-700) 14%, transparent);
+}
+
+/*
+ * Accent palettes, chosen by the visitor (AccentPicker / ⌘K) and stored as
+ * <html data-accent="…">; no attribute = teal. Each sets a ramp the semantic tokens
+ * above read from: 300/400 are used on dark, 700/800 on light (all AA+ for text
+ * and for --color-on-accent on the accent), plus a second hue for the glows.
+ */
+:root {
+  --accent-300: var(--color-teal-300);
+  --accent-400: var(--color-teal-400);
+  --accent-700: var(--color-teal-700);
+  --accent-800: var(--color-teal-800);
+  --accent-2-300: var(--color-cyan-300);
+  --accent-2-400: var(--color-cyan-400);
+}
+
+:root[data-accent="violet"] {
+  --accent-300: #c4b5fd;
+  --accent-400: #a78bfa;
+  --accent-700: #6d28d9;
+  --accent-800: #5b21b6;
+  --accent-2-300: #f0abfc;
+  --accent-2-400: #e879f9;
+}
+
+:root[data-accent="blue"] {
+  --accent-300: #93c5fd;
+  --accent-400: #60a5fa;
+  --accent-700: #1d4ed8;
+  --accent-800: #1e40af;
+  --accent-2-300: #7dd3fc;
+  --accent-2-400: #38bdf8;
+}
+
+:root[data-accent="amber"] {
+  --accent-300: #fcd34d;
+  --accent-400: #fbbf24;
+  --accent-700: #b45309;
+  --accent-800: #92400e;
+  --accent-2-300: #fdba74;
+  --accent-2-400: #fb923c;
+}
+
+:root[data-accent="rose"] {
+  --accent-300: #fda4af;
+  --accent-400: #fb7185;
+  --accent-700: #be123c;
+  --accent-800: #9f1239;
+  --accent-2-300: #f9a8d4;
+  --accent-2-400: #f472b6;
 }

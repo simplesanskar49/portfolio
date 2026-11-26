@@ -1,6 +1,7 @@
 import { Menu, X } from "lucide-react";
 import { useEffect, useId, useState } from "react";
 
+import { AccentPicker } from "~/components/atoms/AccentPicker";
 import { ScrollProgress } from "~/components/atoms/ScrollProgress";
 import { ThemeToggle } from "~/components/atoms/ThemeToggle";
 import { Wordmark } from "~/components/atoms/Wordmark";
@@ -8,6 +9,7 @@ import { CommandMenu } from "~/components/command-menu/CommandMenu";
 import { NAV_ITEMS } from "~/constants/navigation";
 import { useActiveSection } from "~/hooks/useActiveSection";
 import { useScrolled } from "~/hooks/useScrolled";
+import { useSyncHash } from "~/hooks/useSyncHash";
 import { cn } from "~/utils/cn";
 
 import { Container } from "./Container";
@@ -19,6 +21,7 @@ export function NavBar() {
   const [menuOpen, setMenuOpen] = useState(false);
   const scrolled = useScrolled();
   const activeId = useActiveSection(SECTION_IDS);
+  useSyncHash(activeId);
   const menuId = useId();
 
   // Close the mobile menu on Escape or when the viewport grows to desktop.
@@ -78,6 +81,7 @@ export function NavBar() {
 
         <div className="flex items-center gap-1">
           <CommandMenu currentSectionId={activeId} />
+          <AccentPicker />
           <ThemeToggle />
           <button
             type="button"

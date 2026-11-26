@@ -44,7 +44,7 @@ export function ScrollProgress() {
       ref={barRef}
       aria-hidden="true"
       data-testid="scroll-progress"
-      className="scroll-progress pointer-events-none absolute inset-x-0 -bottom-px h-0.5 bg-linear-to-r from-accent to-cyan-400"
+      className="scroll-progress pointer-events-none absolute inset-x-0 -bottom-px h-0.5 bg-linear-to-r from-accent to-accent-2"
     />
   );
 }
