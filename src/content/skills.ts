@@ -37,6 +37,7 @@ export const skills: SkillGroup[] = [
       "Database migrations",
       "JWT auth",
       "Access control design",
+      "RBAC",
     ],
   },
   {

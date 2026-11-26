@@ -6,9 +6,9 @@ export const projects: Project[] = [
     title: "Dashboard registry & access control",
     context: "Armada",
     problem:
-      "Every team needed to see exactly the dashboards meant for them — and adding or re-gating one meant a code change and a deploy.",
+      "Every team needed to see exactly the dashboards meant for them, and adding or re-gating one meant a code change and a deploy.",
     built:
-      "A database-backed registry with an admin console, plus server-side access rules: deny beats allow, group or per-person grants, and anything unknown fails closed.",
+      "A database-backed registry with an admin console, plus server-side role-based access control (RBAC): deny beats allow, group or per-person grants, and anything unknown fails closed.",
     outcome: "Admins add and gate dashboards themselves, and access is enforced on the server.",
     stack: ["React", "TypeScript", "Go", "PostgreSQL", "Microsoft Entra ID"],
     links: [],
@@ -28,7 +28,7 @@ export const projects: Project[] = [
     context: "Armada",
     problem: "Every product screen rebuilt tables slightly differently.",
     built:
-      "A shared DataGrid with sorting (incl. date-time), resizable and pinned columns that remember your layout, virtualized rows and accessible keyboard behaviour.",
+      "A shared DataGrid with sorting (incl. date-time), resizable and pinned columns that remember your layout, row virtualization that keeps 10,000+ rows scrolling smoothly, and accessible keyboard behaviour.",
     outcome: "Rolled out across 90+ screens of the flagship console, replacing one-off tables.",
     stack: ["React", "TypeScript", "Storybook", "Jest"],
     links: [],

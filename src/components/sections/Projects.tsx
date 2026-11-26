@@ -42,7 +42,7 @@ function ProjectCard({ project }: { project: Project }) {
                   className="min-h-11 text-sm font-medium text-accent hover:text-accent-hover"
                 >
                   {link.label}
-                  <span className="sr-only"> — {project.title}</span>
+                  <span className="sr-only"> for {project.title}</span>
                 </ExternalLink>
               </li>
             ))}
