@@ -11,7 +11,7 @@ export function About() {
           ))}
         </div>
 
-        <dl className="h-fit divide-y divide-border-default rounded-(--radius-card) border border-border-default bg-bg-surface shadow-card">
+        <dl className="tile h-fit divide-y divide-border-default">
           {about.facts.map((fact) => (
             <div key={fact.label} className="px-5 py-4">
               <dt className="font-mono text-xs tracking-widest text-accent uppercase">
