@@ -15,10 +15,24 @@ export function Hero() {
       <GridBackdrop />
 
       <Container className="pt-16 pb-12 sm:pt-24 sm:pb-16">
-        <p className="inline-flex items-center gap-2 rounded-full border border-border-default bg-bg-surface px-3 py-1 font-mono text-xs tracking-widest text-accent uppercase shadow-card">
-          <span className="size-1.5 rounded-full bg-accent" aria-hidden="true" />
-          {profile.title}
-        </p>
+        <div className="flex flex-wrap items-center gap-3">
+          <p className="inline-flex items-center gap-2 rounded-full border border-border-default bg-bg-surface px-3 py-1 font-mono text-xs tracking-widest text-accent uppercase shadow-card">
+            <span className="size-1.5 rounded-full bg-accent" aria-hidden="true" />
+            {profile.title}
+          </p>
+          {profile.availability && (
+            <a
+              href="#contact"
+              className="inline-flex items-center gap-2 rounded-full border border-success/40 bg-success/10 px-3 py-1 text-xs font-medium text-text-primary transition-colors hover:border-success"
+            >
+              <span className="relative flex size-2" aria-hidden="true">
+                <span className="absolute inline-flex size-full animate-ping rounded-full bg-success opacity-75 motion-reduce:hidden" />
+                <span className="relative inline-flex size-2 rounded-full bg-success" />
+              </span>
+              {profile.availability.label}
+            </a>
+          )}
+        </div>
 
         <h1
           id="hero-heading"

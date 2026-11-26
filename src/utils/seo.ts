@@ -2,6 +2,7 @@ import { absoluteUrl, OG_IMAGE } from "~/constants/site";
 import { about } from "~/content/about";
 import { achievements } from "~/content/achievements";
 import { experience } from "~/content/experience";
+import { principles } from "~/content/principles";
 import { profile } from "~/content/profile";
 import { projects } from "~/content/projects";
 import { skills } from "~/content/skills";
@@ -82,6 +83,18 @@ export function buildLlmsTxt() {
     ...about.paragraphs.flatMap((paragraph) => [paragraph, ""]),
     ...about.facts.map((f) => `- ${f.label}: ${f.value}`),
     "",
+    "## How I work",
+    "",
+    ...principles.map((p) => `- ${p.title}: ${p.detail}`),
+    "",
+    ...(profile.availability
+      ? [
+          "## Availability",
+          "",
+          `${profile.availability.label}. ${profile.availability.lookingFor}`,
+          "",
+        ]
+      : []),
     "## Experience",
     "",
     ...experience.flatMap((role) => [

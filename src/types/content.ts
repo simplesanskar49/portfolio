@@ -8,6 +8,13 @@ export interface Stat {
   label: string;
 }
 
+export interface Availability {
+  /** Short badge text, e.g. "Open to new roles". */
+  label: string;
+  /** "The role I'm looking for", shown in the Contact section. */
+  lookingFor: string;
+}
+
 export interface Profile {
   name: string;
   title: string;
@@ -18,6 +25,8 @@ export interface Profile {
   emailDomain: string;
   links: SocialLink[];
   stats: Stat[];
+  /** When set, shows an "open to roles" badge in the hero and the role note in Contact. */
+  availability?: Availability;
 }
 
 export interface NavItem {
@@ -73,4 +82,9 @@ export interface Achievement {
   label: string;
   detail: string;
   link: SocialLink;
+}
+
+export interface Principle {
+  title: string;
+  detail: string;
 }

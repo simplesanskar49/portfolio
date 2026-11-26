@@ -55,7 +55,7 @@ function ProjectCard({ project }: { project: Project }) {
 
 export function Projects() {
   return (
-    <Section id="projects" eyebrow="Projects" title="Things I've built">
+    <Section id="projects" eyebrow="Projects" title="What I've built">
       <ul className="grid gap-4 sm:gap-6 md:grid-cols-2" data-stagger>
         {projects.map((project) => (
           <li key={project.title}>

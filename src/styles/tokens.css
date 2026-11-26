@@ -41,6 +41,8 @@
   --color-accent-hover: var(--color-teal-300);
   --color-accent-muted: color-mix(in oklab, var(--color-teal-400) 15%, transparent);
   --color-on-accent: var(--color-neutral-950);
+  /* Status: "open to roles" badge */
+  --color-success: var(--color-emerald-400);
 
   /* Decorative (hero backdrop) */
   --color-grid: color-mix(in oklab, var(--color-neutral-700) 60%, transparent);
@@ -76,6 +78,7 @@
   --color-accent-hover: var(--color-teal-800);
   --color-accent-muted: color-mix(in oklab, var(--color-teal-700) 12%, transparent);
   --color-on-accent: #ffffff;
+  --color-success: var(--color-emerald-600);
 
   --color-grid: color-mix(in oklab, var(--color-teal-700) 10%, transparent);
   --color-glow: color-mix(in oklab, var(--color-teal-300) 45%, transparent);

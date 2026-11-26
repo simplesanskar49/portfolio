@@ -5,6 +5,7 @@ import { Achievements } from "~/components/sections/Achievements";
 import { Contact } from "~/components/sections/Contact";
 import { Experience } from "~/components/sections/Experience";
 import { Hero } from "~/components/sections/Hero";
+import { HowIWork } from "~/components/sections/HowIWork";
 import { Projects } from "~/components/sections/Projects";
 import { Skills } from "~/components/sections/Skills";
 import { absoluteUrl, OG_IMAGE } from "~/constants/site";
@@ -57,6 +58,7 @@ export default function Home() {
       <main id="main">
         <Hero />
         <About />
+        <HowIWork />
         <Experience />
         <Projects />
         <Skills />
