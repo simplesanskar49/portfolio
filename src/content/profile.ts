@@ -22,4 +22,11 @@ export const profile: Profile = {
     { value: "10+", label: "features shipped end-to-end" },
     { value: "100k+", label: "users on the platform I build for" },
   ],
+  // Hidden for now. Uncomment (and edit) to show the "open to roles" badge in the hero
+  // and "The role I'm looking for" in Contact.
+  // availability: {
+  //   label: "Open to new roles",
+  //   lookingFor:
+  //     "Product engineer or full-stack roles where I own features end to end, work directly with the people who use them, and care about UX, accessibility and performance.",
+  // },
 };

@@ -41,6 +41,17 @@ export function Contact() {
           open.
         </p>
 
+        {profile.availability && (
+          <div className="tile mt-8 p-5 sm:p-6">
+            <h3 className="font-mono text-xs tracking-widest text-accent uppercase">
+              The role I&apos;m looking for
+            </h3>
+            <p className="mt-2 text-sm leading-relaxed text-text-secondary sm:text-base">
+              {profile.availability.lookingFor}
+            </p>
+          </div>
+        )}
+
         <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center">
           <ButtonLink href={email ? `mailto:${email}` : "#contact"} aria-disabled={!email}>
             <Mail className="size-4" aria-hidden="true" />

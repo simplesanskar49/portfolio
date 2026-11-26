@@ -12,7 +12,7 @@ import { cn } from "~/utils/cn";
 import { Container } from "./Container";
 
 const SECTION_IDS = NAV_ITEMS.map((item) => item.id);
-const DESKTOP_QUERY = "(min-width: 48rem)";
+const DESKTOP_QUERY = "(min-width: 64rem)";
 
 export function NavBar() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -40,7 +40,7 @@ export function NavBar() {
 
   const linkClass = (id: string) =>
     cn(
-      "rounded-md px-3 py-2 text-sm transition-colors",
+      "rounded-md px-3 py-2 text-sm whitespace-nowrap transition-colors",
       activeId === id ? "text-accent" : "text-text-secondary hover:text-text-primary",
     );
 
@@ -56,7 +56,7 @@ export function NavBar() {
       <Container className="flex h-(--spacing-nav) items-center justify-between gap-4">
         <Wordmark href="#top" srSuffix="back to top" />
 
-        <nav aria-label="Primary" className="hidden md:block">
+        <nav aria-label="Primary" className="hidden lg:block">
           <ul className="flex items-center gap-1">
             {NAV_ITEMS.map((item) => (
               <li key={item.id}>
@@ -76,7 +76,7 @@ export function NavBar() {
           <ThemeToggle />
           <button
             type="button"
-            className="inline-flex size-11 items-center justify-center rounded-lg text-text-secondary hover:bg-bg-raised hover:text-text-primary md:hidden"
+            className="inline-flex size-11 items-center justify-center rounded-lg text-text-secondary hover:bg-bg-raised hover:text-text-primary lg:hidden"
             aria-expanded={menuOpen}
             aria-controls={menuId}
             aria-label={menuOpen ? "Close menu" : "Open menu"}
@@ -99,7 +99,7 @@ export function NavBar() {
         id={menuId}
         aria-label="Primary mobile"
         hidden={!menuOpen}
-        className="border-t border-border-default md:hidden"
+        className="border-t border-border-default lg:hidden"
       >
         <Container>
           <ul className="flex flex-col py-2">
