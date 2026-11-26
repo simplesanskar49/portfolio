@@ -1,12 +1,14 @@
-import { ArrowUpRight, Copy, Hash, Mail, SunMoon, type LucideIcon } from "lucide-react";
+import { ArrowUpRight, Copy, Hash, Mail, Palette, SunMoon, type LucideIcon } from "lucide-react";
 import { useMemo } from "react";
 
+import { ACCENTS } from "~/constants/accent";
 import { NAV_ITEMS } from "~/constants/navigation";
 import { profile } from "~/content/profile";
+import { useAccent } from "~/hooks/useAccent";
 import { useEmailAddress } from "~/hooks/useEmailAddress";
 import { useTheme } from "~/hooks/useTheme";
 
-export type CommandGroup = "Navigate" | "Actions" | "Profiles";
+export type CommandGroup = "Navigate" | "Actions" | "Accent colour" | "Profiles";
 
 export interface Command {
   id: string;
@@ -20,7 +22,12 @@ export interface Command {
   run: () => string | undefined | Promise<string | undefined>;
 }
 
-export const GROUP_ORDER: readonly CommandGroup[] = ["Navigate", "Actions", "Profiles"];
+export const GROUP_ORDER: readonly CommandGroup[] = [
+  "Navigate",
+  "Actions",
+  "Accent colour",
+  "Profiles",
+];
 
 const SECTION_KEYWORDS: Partial<Record<string, readonly string[]>> = {
   about: ["bio", "intro", "education"],
@@ -50,6 +57,7 @@ function scrollToSection(id: string) {
 export function useCommands(): Command[] {
   const { theme, toggleTheme } = useTheme();
   const email = useEmailAddress(profile.emailUser, profile.emailDomain);
+  const { accent, setAccent } = useAccent();
 
   return useMemo(() => {
     const navigate: Command[] = NAV_ITEMS.map((item) => ({
@@ -109,6 +117,18 @@ export function useCommands(): Command[] {
       );
     }
 
+    const accents: Command[] = ACCENTS.filter((option) => option.id !== accent).map((option) => ({
+      id: `accent-${option.id}`,
+      group: "Accent colour",
+      label: `Use ${option.label} accent`,
+      keywords: ["accent", "colour", "color", "theme", "palette"],
+      icon: Palette,
+      run: () => {
+        setAccent(option.id);
+        return `${option.label} accent applied`;
+      },
+    }));
+
     const profiles: Command[] = profile.links.map((link) => ({
       id: `link-${link.label.toLowerCase()}`,
       group: "Profiles",
@@ -122,6 +142,6 @@ export function useCommands(): Command[] {
       },
     }));
 
-    return [...navigate, ...actions, ...profiles];
-  }, [theme, toggleTheme, email]);
+    return [...navigate, ...actions, ...accents, ...profiles];
+  }, [theme, toggleTheme, email, accent, setAccent]);
 }

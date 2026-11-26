@@ -77,3 +77,28 @@ test("header fades in gradually with scroll and is clear at the top", async ({ p
   await scrollTo(0);
   await expect.poll(alpha).toBe(0);
 });
+
+test("the URL hash follows the section in view", async ({ page }) => {
+  await page.goto("/");
+  const scrollToSection = (id: string) =>
+    page.evaluate((target) => {
+      document.getElementById(target)?.scrollIntoView({ behavior: "instant" });
+    }, id);
+
+  await scrollToSection("skills");
+  await expect(page).toHaveURL(/#skills$/);
+  await scrollToSection("experience");
+  await expect(page).toHaveURL(/#experience$/);
+
+  await page.evaluate(() => {
+    window.scrollTo({ top: 0, behavior: "instant" });
+  });
+  await expect(page).toHaveURL(/\/$/);
+});
+
+test("opening a deep link keeps its hash", async ({ page }) => {
+  await page.goto("/#projects");
+  await expect(page.locator("#projects")).toBeInViewport();
+  await page.waitForTimeout(300);
+  await expect(page).toHaveURL(/#projects$/);
+});
