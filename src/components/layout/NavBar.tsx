@@ -3,8 +3,8 @@ import { useEffect, useId, useState } from "react";
 
 import { ScrollProgress } from "~/components/atoms/ScrollProgress";
 import { ThemeToggle } from "~/components/atoms/ThemeToggle";
+import { Wordmark } from "~/components/atoms/Wordmark";
 import { NAV_ITEMS } from "~/constants/navigation";
-import { profile } from "~/content/profile";
 import { useActiveSection } from "~/hooks/useActiveSection";
 import { useScrolled } from "~/hooks/useScrolled";
 import { cn } from "~/utils/cn";
@@ -13,13 +13,6 @@ import { Container } from "./Container";
 
 const SECTION_IDS = NAV_ITEMS.map((item) => item.id);
 const DESKTOP_QUERY = "(min-width: 48rem)";
-
-function initials(name: string): string {
-  return name
-    .split(" ")
-    .map((part) => part.charAt(0))
-    .join("");
-}
 
 export function NavBar() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -61,14 +54,7 @@ export function NavBar() {
       )}
     >
       <Container className="flex h-(--spacing-nav) items-center justify-between gap-4">
-        <a
-          href="#top"
-          className="font-mono text-lg font-semibold text-text-primary hover:text-accent"
-        >
-          {initials(profile.name)}
-          <span className="text-accent">.</span>
-          <span className="sr-only"> {profile.name}, back to top</span>
-        </a>
+        <Wordmark href="#top" srSuffix="back to top" />
 
         <nav aria-label="Primary" className="hidden md:block">
           <ul className="flex items-center gap-1">

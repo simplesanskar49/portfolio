@@ -1,26 +1,18 @@
 import { ArrowRight, Mail } from "lucide-react";
 
 import { ButtonLink } from "~/components/atoms/ButtonLink";
+import { GridBackdrop } from "~/components/atoms/GridBackdrop";
 import { StatTile } from "~/components/atoms/StatTile";
 import { Container } from "~/components/layout/Container";
 import { profile } from "~/content/profile";
 
+const [firstName, ...rest] = profile.name.split(" ");
+const lastName = rest.join(" ");
+
 export function Hero() {
   return (
     <section id="top" aria-labelledby="hero-heading" className="relative isolate overflow-hidden">
-      {/* Decorative backdrop: grid + two soft glows, fading out towards the edges. */}
-      <div
-        aria-hidden="true"
-        className="absolute inset-0 -z-10 bg-[linear-gradient(to_right,var(--color-grid)_0.0625rem,transparent_0.0625rem),linear-gradient(to_bottom,var(--color-grid)_0.0625rem,transparent_0.0625rem)] mask-[radial-gradient(ellipse_at_top,black_20%,transparent_70%)] bg-size-[3rem_3rem]"
-      />
-      <div
-        aria-hidden="true"
-        className="absolute top-0 left-1/2 -z-10 h-80 w-[min(56rem,100%)] -translate-x-1/2 rounded-full bg-glow blur-3xl"
-      />
-      <div
-        aria-hidden="true"
-        className="absolute top-24 right-0 -z-10 hidden h-64 w-md rounded-full bg-glow-secondary blur-3xl sm:block"
-      />
+      <GridBackdrop />
 
       <Container className="pt-16 pb-12 sm:pt-24 sm:pb-16">
         <p className="inline-flex items-center gap-2 rounded-full border border-border-default bg-bg-surface px-3 py-1 font-mono text-xs tracking-widest text-accent uppercase shadow-card">
@@ -32,7 +24,7 @@ export function Hero() {
           id="hero-heading"
           className="mt-6 text-4xl font-semibold tracking-tight text-balance sm:text-6xl lg:text-7xl"
         >
-          {profile.name}
+          <span className="text-accent">{firstName}</span> {lastName}
         </h1>
         <p className="mt-3 font-mono text-sm text-text-secondary sm:text-base">
           {profile.subtitle}

@@ -14,7 +14,12 @@ import { THEME_COLOR, THEME_INIT_SCRIPT } from "~/constants/theme";
 import type { Route } from "./+types/root";
 import "./app.css";
 
-export const links: Route.LinksFunction = () => [{ rel: "icon", href: "/favicon.ico" }];
+export const links: Route.LinksFunction = () => [
+  // SVG for modern browsers, .ico fallback (sizes="32x32" keeps Chrome from preferring it).
+  { rel: "icon", href: "/favicon.svg", type: "image/svg+xml" },
+  { rel: "icon", href: "/favicon.ico", sizes: "32x32" },
+  { rel: "apple-touch-icon", href: "/apple-touch-icon.png" },
+];
 
 export function Layout({ children }: { children: React.ReactNode }) {
   return (
