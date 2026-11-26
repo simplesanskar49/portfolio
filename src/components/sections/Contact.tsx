@@ -75,12 +75,13 @@ export function Contact() {
           </span>
         </div>
 
-        <ul className="mt-10 flex flex-wrap gap-x-6 gap-y-2">
+        {/* Rows sit close together; each link keeps a 2.25rem-tall tap target (WCAG 2.5.8 asks for 1.5rem). */}
+        <ul className="mt-10 flex flex-wrap gap-x-6">
           {profile.links.map((link) => (
             <li key={link.href}>
               <ExternalLink
                 href={link.href}
-                className="min-h-11 text-sm font-medium text-text-secondary hover:text-accent"
+                className="min-h-9 text-sm font-medium text-text-secondary hover:text-accent"
               >
                 {link.label}
               </ExternalLink>
