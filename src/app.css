@@ -159,10 +159,61 @@
   }
 }
 
+/* Navbar: fade the background, border and blur in over the first 4rem of scroll,
+   driven by scroll position (no threshold, so nothing snaps). The open mobile menu
+   opts out so the header stays solid. Fallback: class toggle in NavBar.tsx. */
+@keyframes site-header-solid {
+  from {
+    background-color: transparent;
+    border-color: transparent;
+    backdrop-filter: blur(0);
+  }
+  to {
+    background-color: color-mix(in oklab, var(--color-bg-page) 85%, transparent);
+    border-color: var(--color-border-default);
+    backdrop-filter: blur(0.75rem);
+  }
+}
+
+@supports (animation-timeline: scroll()) {
+  .site-header:not([data-menu-open]) {
+    animation: site-header-solid linear both;
+    animation-timeline: scroll(root block);
+    animation-range: 0 4rem;
+  }
+}
+
 /* Theme switch: the new theme is revealed by a clip-path circle (see useTheme.ts),
    so turn off the default cross-fade between the old and new snapshots. */
 ::view-transition-old(root),
 ::view-transition-new(root) {
   animation: none;
   mix-blend-mode: normal;
+}
+
+/* Command menu (see CommandMenu.tsx): lock page scroll while open, and a short
+   fade + scale on open. The global reduced-motion rule shortens it to nothing. */
+html:has(dialog.command-menu[open]) {
+  overflow: hidden;
+}
+
+dialog.command-menu[open] {
+  animation: command-menu-in 0.16s cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+
+dialog.command-menu[open]::backdrop {
+  animation: command-menu-fade 0.16s ease-out;
+}
+
+@keyframes command-menu-in {
+  from {
+    opacity: 0;
+    transform: translateY(-0.5rem) scale(0.98);
+  }
+}
+
+@keyframes command-menu-fade {
+  from {
+    opacity: 0;
+  }
 }

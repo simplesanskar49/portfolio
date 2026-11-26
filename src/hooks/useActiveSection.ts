@@ -16,7 +16,13 @@ export function useActiveSection(ids: readonly string[]): string | null {
     const observer = new IntersectionObserver(
       (entries) => {
         for (const entry of entries) {
-          if (entry.isIntersecting) setActiveId(entry.target.id);
+          if (entry.isIntersecting) {
+            setActiveId(entry.target.id);
+          } else {
+            // Leaving the band without another section entering it (e.g. scrolling back
+            // up into the hero) means no section is active.
+            setActiveId((current) => (current === entry.target.id ? null : current));
+          }
         }
       },
       // A thin band at mid-viewport: exactly one section intersects it at a time.

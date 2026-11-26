@@ -4,6 +4,7 @@ import { useEffect, useId, useState } from "react";
 import { ScrollProgress } from "~/components/atoms/ScrollProgress";
 import { ThemeToggle } from "~/components/atoms/ThemeToggle";
 import { Wordmark } from "~/components/atoms/Wordmark";
+import { CommandMenu } from "~/components/command-menu/CommandMenu";
 import { NAV_ITEMS } from "~/constants/navigation";
 import { useActiveSection } from "~/hooks/useActiveSection";
 import { useScrolled } from "~/hooks/useScrolled";
@@ -46,11 +47,14 @@ export function NavBar() {
 
   return (
     <header
+      // Background, border and blur fade in with scroll position (see .site-header in app.css);
+      // the classes below are the fallback for browsers without scroll-driven animations.
+      data-menu-open={menuOpen || undefined}
       className={cn(
-        "sticky top-0 z-40 border-b pt-[env(safe-area-inset-top)] transition-colors",
+        "site-header sticky top-0 z-40 border-b pt-[env(safe-area-inset-top)] transition-[background-color,border-color,backdrop-filter] duration-300",
         scrolled || menuOpen
           ? "border-border-default bg-bg-page/85 backdrop-blur-md"
-          : "border-transparent bg-transparent",
+          : "border-transparent bg-transparent backdrop-blur-none",
       )}
     >
       <Container className="flex h-(--spacing-nav) items-center justify-between gap-4">
@@ -73,6 +77,7 @@ export function NavBar() {
         </nav>
 
         <div className="flex items-center gap-1">
+          <CommandMenu currentSectionId={activeId} />
           <ThemeToggle />
           <button
             type="button"
