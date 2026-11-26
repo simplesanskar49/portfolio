@@ -5,7 +5,7 @@ import type { ExperienceRole } from "~/types/content";
 
 function RoleCard({ role }: { role: ExperienceRole }) {
   return (
-    <article className="rounded-(--radius-card) border border-border-default bg-bg-surface p-5 shadow-card sm:p-7">
+    <article className="tile p-5 sm:p-7">
       <header className="flex flex-col gap-1 sm:flex-row sm:items-baseline sm:justify-between sm:gap-4">
         <h3 className="text-lg font-semibold sm:text-xl">
           {role.role}{" "}

@@ -55,6 +55,49 @@
   }
 }
 
+@layer components {
+  /*
+   * Shared card surface with one hover treatment for every tile on the site
+   * (projects, experience, skills, achievements, stats, about facts).
+   * Uses the individual `translate`/`scale` properties so it composes with the
+   * reveal-on-scroll `transform`. Hover only applies on devices that can hover;
+   * keyboard focus inside a tile gets the same look. Reduced motion keeps the
+   * border/shadow change but drops the movement.
+   */
+  .tile {
+    border-radius: var(--radius-card);
+    border: 0.0625rem solid var(--color-border-default);
+    background-color: var(--color-bg-surface);
+    box-shadow: var(--shadow-card);
+    transition-property: translate, scale, border-color, box-shadow;
+    transition-duration: 0.2s;
+    transition-timing-function: cubic-bezier(0.2, 0.7, 0.2, 1);
+  }
+
+  .tile:has(:focus-visible) {
+    translate: 0 -0.25rem;
+    scale: 1.01;
+    border-color: var(--color-border-strong);
+    box-shadow: var(--shadow-card-hover);
+  }
+
+  @media (hover: hover) {
+    .tile:hover {
+      translate: 0 -0.25rem;
+      scale: 1.01;
+      border-color: var(--color-border-strong);
+      box-shadow: var(--shadow-card-hover);
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .tile:is(:hover, :has(:focus-visible)) {
+      translate: none;
+      scale: none;
+    }
+  }
+}
+
 /*
  * Reveal on scroll. Only active when <html> has .reveal-ready (set before paint
  * when JS + IntersectionObserver are available and reduced motion is off).

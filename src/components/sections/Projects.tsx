@@ -12,7 +12,7 @@ const STORY: { key: "problem" | "built" | "outcome"; label: string }[] = [
 
 function ProjectCard({ project }: { project: Project }) {
   return (
-    <article className="flex h-full flex-col rounded-(--radius-card) border border-border-default bg-bg-surface p-5 shadow-card transition-colors hover:border-border-strong sm:p-6">
+    <article className="tile flex h-full flex-col p-5 sm:p-6">
       <p className="font-mono text-xs tracking-widest text-accent uppercase">{project.context}</p>
       <h3 className="mt-2 text-lg font-semibold">{project.title}</h3>
 
