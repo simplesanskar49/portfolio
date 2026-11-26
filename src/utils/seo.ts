@@ -11,9 +11,6 @@ import { skills } from "~/content/skills";
  * Everything search engines and AI assistants read about the site is built
  * from the same content files the page renders, so it can't drift.
  * The email address is deliberately left out (see Profile.emailUser).
- *
- * TODO(launch): all absolute URLs here use the placeholder SITE_URL until
- * VITE_SITE_URL is set (see constants/site.ts).
  */
 
 const fact = (label: string) => about.facts.find((f) => f.label === label)?.value;

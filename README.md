@@ -32,6 +32,19 @@ npm run dev        # http://localhost:5173
 | `npm run test:e2e`  | Playwright: a11y (axe) + no horizontal scroll at 8 widths |
 | `npm run check`     | Everything CI runs, except e2e                            |
 
+## Deploy (Vercel)
+
+Static output, configured in `vercel.json` (build `npm run build`, output `build/client`, security + cache headers). Missing paths get `404.html` with a 404 status.
+
+Live at **https://sanskar-kumar.vercel.app** (the project domain, also the default in `src/constants/site.ts`). Every push to `main` deploys to production.
+
+1. To move to a custom domain: add it under the project's **Domains**, then set `VITE_SITE_URL` (see `.env.example`) in the Production environment and redeploy.
+2. **Analytics** tab → enable Web Analytics.
+3. **Google Search Console** → Add property → **URL prefix** → HTML tag. Put the `content` value in `VITE_GOOGLE_SITE_VERIFICATION`, redeploy, click Verify. Then **Sitemaps** → submit `sitemap.xml`.
+4. **Bing Webmaster Tools** → import the site from Search Console (or use `VITE_BING_SITE_VERIFICATION` with the HTML tag method). Bing also powers ChatGPT and Copilot search.
+
+Preview deployments are `noindex` by default on Vercel, so only production is indexed.
+
 ## Project structure
 
 ```

@@ -10,6 +10,7 @@ import {
 
 import { ACCENT_INIT_SCRIPT, DEFAULT_ACCENT, faviconHref, ICON_VERSION } from "~/constants/accent";
 import { REVEAL_INIT_SCRIPT } from "~/constants/reveal";
+import { SITE_VERIFICATION } from "~/constants/site";
 import { THEME_COLOR, THEME_INIT_SCRIPT } from "~/constants/theme";
 import { useAccentFavicon } from "~/hooks/useAccent";
 
@@ -32,6 +33,9 @@ export function Layout({ children }: { children: React.ReactNode }) {
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
         <meta name="theme-color" content={THEME_COLOR.dark} />
+        {SITE_VERIFICATION.map((tag) => (
+          <meta key={tag.name} name={tag.name} content={tag.content.trim()} />
+        ))}
         <script
           dangerouslySetInnerHTML={{
             __html: THEME_INIT_SCRIPT + ACCENT_INIT_SCRIPT + REVEAL_INIT_SCRIPT,
