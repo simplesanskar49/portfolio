@@ -15,7 +15,7 @@ interface ButtonLinkProps extends ComponentPropsWithoutRef<"a"> {
   variant?: Variant;
 }
 
-/** A link styled as a button (navigation, not actions — use <button> for actions). */
+/** A link styled as a button (navigation, not actions; use <button> for actions). */
 export function ButtonLink({
   variant = "primary",
   className,

@@ -5,7 +5,7 @@ export const profile: Profile = {
   title: "Product Engineer",
   subtitle: "Full-stack · React, TypeScript, Go",
   pitch:
-    "I build products people enjoy using — owning features from the user problem to the shipped UI and the Go services behind it, with user experience, accessibility and performance treated as features.",
+    "I build products people enjoy using, owning features from the user problem to the shipped UI and the Go services behind it, with user experience, accessibility and performance treated as features.",
   emailUser: "sanskar.kumar.49",
   emailDomain: "gmail.com",
   links: [
